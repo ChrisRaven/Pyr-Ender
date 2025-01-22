@@ -20,7 +20,6 @@
     if (e.button !== 1) return
 
     function createAnnotation() {
-      const id = crypto.randomUUID()
       const annotations = annotationLayer.layer_.localAnnotations.toJSON()
       annotations.push({id: crypto.randomUUID(), point: Array.from(viewer.mouseState.position), type: 'point'})
       annotationLayer.layer_.localAnnotations.restoreState(annotations)
