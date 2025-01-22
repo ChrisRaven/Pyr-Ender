@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ender
 // @namespace    http://tampermonkey.net/
-// @version      2025-01-22
+// @version      0.1
 // @description  Allows quickly adding annotations at mouse pointer
 // @author       Krzysztof Kruk
 // @match        https://play.pyr.ai/
