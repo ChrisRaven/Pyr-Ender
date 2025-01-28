@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ender
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.1.1
 // @description  Allows quickly adding annotations at mouse pointer
 // @author       Krzysztof Kruk
 // @match        https://play.pyr.ai/
@@ -11,13 +11,15 @@
 // @grant        none
 // ==/UserScript==
 
+/* global viewer */
+
 (function() {
-  'use strict';
+  'use strict'
 
   const color = 'white'
 
   document.addEventListener('mouseup', (e) => {
-    if ((e.button !== 1) || (e.metaKey && e.button === 0)) return
+    if (e.button !== 1 && !(e.metaKey && e.button === 0)) return
 
     function createAnnotation() {
       const annotations = annotationLayer.layer_.localAnnotations.toJSON()
@@ -42,4 +44,4 @@
     annotationLayer.layer_.annotationDisplayState.color.restoreState(color)
   })
 
-})();
+})()
