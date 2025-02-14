@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ender
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1.1
+// @version      0.1.2
 // @description  Allows quickly adding annotations at mouse pointer
 // @author       Krzysztof Kruk
 // @match        https://play.pyr.ai/
@@ -20,6 +20,7 @@
 
   document.addEventListener('mouseup', (e) => {
     if (e.button !== 1 && !(e.metaKey && e.button === 0)) return
+    if (!e.target.classList.contains('neuroglancer-rendered-data-panel')) return
 
     function createAnnotation() {
       const annotations = annotationLayer.layer_.localAnnotations.toJSON()
